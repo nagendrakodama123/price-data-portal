@@ -9,7 +9,8 @@ const pollData = async () => {
     const data = response.data;
     for(const priceData of data) {
         const newEntry = StockModel({stock_id: priceData.id,symbol: priceData.symbol,current_price: priceData.current_price, timeStamp: new Date()});
-        await newEntry.save();
+       const stockData = await newEntry.save();
+       return stockData;
     }
     
     await saveStockImage(response.data);
