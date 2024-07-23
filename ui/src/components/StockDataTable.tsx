@@ -19,11 +19,11 @@ const StockDataTable: React.FC = () => {
         <div className='table_header'>
 
             {imageData.map(image => (
-                <div className='stock_image' key={image.stock_id} onClick={() => { dispatch(setSelectedStock(image.stock_id)) }}>
+                <div  className={`${selectedStock === image.stock_id ? 'active' : 'stock_image'}`} key={image.stock_id} onClick={() => { dispatch(setSelectedStock(image.stock_id)) }}>
                     <img src={image.stock_image} alt={image.stock_id} style={{ width: '25px', height: '25px' }} />
                     <p>{image.stock_id}</p>
                 </div>))}
-            <div className='stock_image' onClick={() => { dispatch(setSelectedStock(null)) }}> show all</div></div>
+            <div className={`${selectedStock === null ? 'active' : 'stock_image'}`} onClick={() => { dispatch(setSelectedStock(null)) }}> show all</div></div>
 
         {data && Object.keys(data).length === 0 ? (
             <p>Loading data...</p>

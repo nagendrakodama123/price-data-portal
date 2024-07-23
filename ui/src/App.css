@@ -130,7 +130,14 @@ h2 {
 }
 
 .active{
+  display: flex;
+  align-items: center;
   background: #1E2745;
   color: #fff;
   border-radius: 10px;
+  gap: 5px;
+  padding: 1px 5px;
+  cursor: pointer;
+  width: fit-content;
+  padding: 1rem;
 }
