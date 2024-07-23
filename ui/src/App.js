@@ -6,10 +6,12 @@ import StockDataTable from './components/StockDataTable.tsx';
 function App() {
   return (
     <Provider store={store}>
-            <div className="App">
-             <center><h1>Real-Price-Data</h1></center>
-                <StockDataTable />
-            </div>
+      <div className="App">
+        <div className='header'>
+          <h1>Real-Price-Data</h1>
+        </div>
+        <StockDataTable />
+      </div>
     </Provider>
   );
 }

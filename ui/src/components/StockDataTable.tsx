@@ -14,20 +14,17 @@ const StockDataTable: React.FC = () => {
     }, [dispatch]);
 
 
-    return (<div className="stock-table-container">
-        <div style={{ display: 'flex', flexDirection: 'row' }}>
-            <div style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                padding: "5px",
-                border: "1px dotted gray",
-                borderRadius: "50%"
-            }} onClick={() => { dispatch(setSelectedStock(null)) }}> show all</div>
+    return (
+    <div className="stock-table-container">
+        <div className='table_header'>
+
             {imageData.map(image => (
-                <div style={{ padding: '5px' }} key={image.stock_id} onClick={() => { dispatch(setSelectedStock(image.stock_id)) }}>
-                    <img src={image.stock_image} alt={image.stock_id} style={{ width: '50px', height: '50px' }} />
-                </div>))}</div>
+                <div className='stock_image' key={image.stock_id} onClick={() => { dispatch(setSelectedStock(image.stock_id)) }}>
+                    <img src={image.stock_image} alt={image.stock_id} style={{ width: '25px', height: '25px' }} />
+                    <p>{image.stock_id}</p>
+                </div>))}
+            <div className='stock_image' onClick={() => { dispatch(setSelectedStock(null)) }}> show all</div></div>
+
         {data && Object.keys(data).length === 0 ? (
             <p>Loading data...</p>
         ) :
@@ -38,8 +35,8 @@ const StockDataTable: React.FC = () => {
                         <table className="stock-table">
                             <thead>
                                 <tr>
-                                    <th>Current Price</th>
-                                    <th>TimeStamp</th>
+                                    <th>Price</th>
+                                    <th>Time</th>
                                 </tr>
                             </thead>
                             <tbody>
